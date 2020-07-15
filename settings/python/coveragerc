@@ -1,0 +1,10 @@
+[paths]
+source =
+    src/
+    .tox/py37/lib/python3.7/site-packages
+
+[report]
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError()
+    if __name__ == "__main__":
