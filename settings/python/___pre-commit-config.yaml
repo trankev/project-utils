@@ -15,3 +15,7 @@ repos:
     rev: v0.720
     hooks:
       - id: mypy
+  - repo: https://github.com/pre-commit/mirrors-yapf
+    rev: v0.30.0
+    hooks:
+      - id: yapf
