@@ -5,7 +5,7 @@ module.exports = {
     },
     extends: [
         "plugin:vue/essential",
-        "@vue/standard",
+        "eslint:recommended",
         "@vue/typescript/recommended",
     ],
     parserOptions: {
@@ -20,7 +20,7 @@ module.exports = {
         "linebreak-style": ["error", "unix"],
         quotes: ["error", "double"],
         semi: ["error", "always"],
-        "comma-dangle": ["error", "only-multiline"],
+        "comma-dangle": ["error", "always-multiline"],
         "space-before-function-paren": ["error", "never"],
     },
     overrides: [
