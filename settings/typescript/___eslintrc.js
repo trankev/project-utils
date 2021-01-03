@@ -16,12 +16,13 @@ module.exports = {
         "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
         "@typescript-eslint/no-useless-constructor": "error",
         "no-useless-constructor": "off",
-        indent: ["error", 4],
         "linebreak-style": ["error", "unix"],
         quotes: ["error", "double"],
         semi: ["error", "always"],
         "comma-dangle": ["error", "always-multiline"],
         "space-before-function-paren": ["error", "never"],
+        indent: "off",
+        "@typescript-eslint/indent": ["error"],
     },
     overrides: [
         {
