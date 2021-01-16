@@ -23,6 +23,7 @@ module.exports = {
         "space-before-function-paren": ["error", "never"],
         indent: "off",
         "@typescript-eslint/indent": ["error"],
+        "@typescript-eslint/no-unused-vars": ["error", {argsIgnorePattern: "^_"}],
     },
     overrides: [
         {
