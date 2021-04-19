@@ -19,13 +19,22 @@ def map_files(source_folder: pathlib.Path, destination_folder: pathlib.Path) -> 
         destination_file.symlink_to(relative_path)
 
 
-def get_parent_folder():
+def get_parent_folder() -> str:
     completed = subprocess.run(
         ["git", "rev-parse", "--show-superproject-working-tree"],
         capture_output=True,
         check=True,
     )
-    return completed.stdout.decode().strip()
+    result = completed.stdout.decode().strip()
+    if result:
+        return result
+    completed = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"],
+        capture_output=True,
+        check=True,
+    )
+    result = completed.stdout.decode().strip()
+    return result
 
 
 def main() -> None:
@@ -33,7 +42,7 @@ def main() -> None:
     parser.add_argument("folders", nargs="+")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="[%(asctime)s][%(levelname)s] %(message)s")
-    settings_folder = pathlib.Path(__file__).parent.resolve() / "settings" 
+    settings_folder = pathlib.Path(__file__).parent.resolve() / "settings"
     destination_folder = pathlib.Path(get_parent_folder())
     for folder in args.folders:
         source_folder = settings_folder / folder
